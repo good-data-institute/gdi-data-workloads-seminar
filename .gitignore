@@ -1,6 +1,5 @@
 venv/
 
-aws_fargate/task_definition.json
 aws_lambda/package
 
 .DS_store

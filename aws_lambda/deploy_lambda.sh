@@ -8,11 +8,11 @@ zip dep-package.zip main.py
 # copy package to s3
 aws s3 cp dep-package.zip s3://gdi-seminar/lambda/dep-package.zip
 
-# delete existing lambda function
+# # delete existing lambda function
 aws lambda delete-function --function-name gdi-demo-lambda
 
 # create lambda function
-aws lambda create-function --function-name gdi-demo-lambda --runtime python3.8 --handler main.trigger --code S3Bucket=gdi-seminar,S3Key=dep-package.zip --role arn:aws:iam::385559909061:role/basic-lambda-role
+aws lambda --profile gdi create-function --function-name gdi-demo-lambda --runtime python3.8 --handler main.trigger --code S3Bucket=gdi-seminar,S3Key=lambda/dep-package.zip --role arn:aws:iam::385559909061:role/basic-lambda-role
 
 # add permission to access s3
 aws lambda add-permission --function-name gdi-demo-lambda --statement-id s3-permission --action "lambda:InvokeFunction" --principal s3.amazonaws.com --source-arn arn:aws:s3:::gdi-seminar --source-account 385559909061

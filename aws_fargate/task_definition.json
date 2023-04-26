@@ -1,0 +1,39 @@
+{
+    "family": "gdi-seminar",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+      {
+        "name": "gdi-seminar",
+        "image": "385559909061.dkr.ecr.ap-southeast-2.amazonaws.com/gdi-seminar:latest",
+        "portMappings": [
+          {
+            "containerPort": 80,
+            "protocol": "tcp"
+          }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs",
+            "options": {
+                "awslogs-group": "gdi-seminar-logs",
+                "awslogs-region": "ap-southeast-2",
+                "awslogs-stream-prefix": "gdi-seminar"
+            }
+        },
+        "essential": true,
+        "environment": [
+          {
+            "name": "AWS_ACCESS_KEY_ID",
+            "value": "AKIAVTRJJKLCTBIR7IRG"
+          },
+          {
+            "name": "AWS_SECRET_ACCESS_KEY",
+            "value": "BW8bScGOAMDTdn2FIX7Q6WYi2mcEeagCjbs08lhA"
+          }
+        ]
+      }
+    ],
+    "executionRoleArn": "arn:aws:iam::385559909061:role/gdi-ecs-role",
+    "taskRoleArn": "arn:aws:iam::385559909061:role/gdi-ecs-role",
+    "cpu": "256",
+    "memory": "512"
+  }
