@@ -1,0 +1,15 @@
+{
+    "cluster": "gdi-seminar-cluster",
+    "serviceName": "gdi-seminar-service",
+    "taskDefinition": "gdi-seminar",
+    "desiredCount": 1,
+    "launchType": "FARGATE",
+    "platformVersion": "LATEST",
+    "networkConfiguration": {
+        "awsvpcConfiguration": {
+            "subnets": ["subnet-0175716cdc48de9a0", "subnet-0ab5156af99022238", "subnet-05eb15e2894f68b5c"],
+            "securityGroups": ["sg-0711cca469b486f84", "sg-0526594280e9b544c"],
+            "assignPublicIp": "ENABLED"
+        }
+    }
+}
