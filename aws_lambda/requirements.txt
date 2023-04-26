@@ -1,0 +1,4 @@
+boto3
+pandas~=1.2.4
+numpy~=1.24.3
+pyarrow~=8.0.0
